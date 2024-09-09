@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Assault Detection System</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: url('/static/uploads/Woman_background_1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: rgba(76, 175, 80, 0.9); /* Solid green with slight transparency */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2.5em;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .container {
+            width: 80%;
+            margin: 100px auto 0; /* Added margin-top to push content below the fixed header */
+            padding: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .card h2 {
+            margin-bottom: 20px;
+            font-size: 2.5em; /* Increase font size for more impact */
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            color: #4CAF50; /* Green color to match the theme */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(0,0,0,0.1)); /* Gradient background */
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .file-upload-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Space between the file input and submit button */
+        }
+        .file-upload-form input[type="file"] {
+            font-size: 1em;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+        .file-upload-form input[type="file"]:hover {
+            border-color: #45a049;
+            background-color: #f0f0f0;
+        }
+        .file-upload-form input[type="submit"] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .file-upload-form input[type="submit"]:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        .card button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.2em;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .card button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Women Assault Detection System
+    </header>
+    <div class="container">
+        <div class="card file-upload">
+            <h2>Upload Video</h2>
+            <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" class="file-upload-form">
+                <input type="file" name="file" accept=".mp4, .avi, .mov" required>
+                <input type="submit" value="Upload and Process">
+            </form>
+        </div>
+        <div class="card">
+            <h2>Live Camera Feed</h2>
+            <a href="{{ url_for('live_camera_feed') }}" target="_blank">
+                <button>Start Live Feed</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
