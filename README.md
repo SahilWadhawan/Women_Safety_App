@@ -14,8 +14,8 @@ https://youtu.be/4Jc1AEVYBfg
 Open your terminal and run the following command to clone the repository:
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/https://github.com/SahilWadhawan/Women_Safety_App.git
+cd Women_Safety_App
 ```
 ### 2. Install the required dependencies
 ```bash
