@@ -1,7 +1,8 @@
 # Woman Safety Analytics Project
 
 ## SIH_ROUND_2_PPT:
-[SIH_ROUND_2_PPT_ALPHA.pptx](https://github.com/user-attachments/files/16936386/SIH_ROUND_2_PPT_ALPHA.pptx)
+[SIH_PPT_FINAL.pptx](https://github.com/user-attachments/files/16942404/SIH_PPT_FINAL.pptx)
+
 
 ## SIH_ROUND_2_DEMO_VIDEO:
 https://youtu.be/FsQIPZuvFSQ
