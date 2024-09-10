@@ -4,7 +4,7 @@
 [SIH_ROUND_2_PPT_ALPHA.pptx](https://github.com/user-attachments/files/16936386/SIH_ROUND_2_PPT_ALPHA.pptx)
 
 ## SIH_ROUND_2_DEMO_VIDEO:
-https://youtu.be/4Jc1AEVYBfg
+https://youtu.be/FsQIPZuvFSQ
 
 ---
 
