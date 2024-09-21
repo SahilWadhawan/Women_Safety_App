@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory, Response
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, Response, jsonify
 import os
 import cv2
 import numpy as np
@@ -13,6 +13,9 @@ app = Flask(__name__)
 UPLOAD_FOLDER = r'C:\Users\Hp\OneDrive\Desktop\Woman_Safety\static\uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov'}
+
+# Global list to store assault locations
+assault_locations = []
 
 # Load models
 yolo_model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
@@ -94,6 +97,8 @@ def process_video(video_path):
 
         if assault_detected:
             cv2.putText(frame, 'ASSAULT DETECTED!', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 4)
+            # Store the assault location (latitude, longitude)
+            assault_locations.append({'lat': 28.544, 'lng': 77.5454})  # Replace with actual detection coordinates
 
         # Write the frame into the output video
         out.write(frame)
@@ -200,6 +205,8 @@ def generate_frames():
 
         if assault_detected:
             cv2.putText(frame, 'ASSAULT DETECTED!', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 4)
+            # Store the assault location (latitude, longitude)
+            assault_locations.append({'lat': 28.544, 'lng': 77.5454})  # Replace with actual detection coordinates
 
         # Encode the frame in JPEG format
         ret, buffer = cv2.imencode('.jpg', frame)
@@ -211,6 +218,10 @@ def generate_frames():
 
     cap.release()
 
+# Route to get assault locations
+@app.route('/assault_locations', methods=['GET'])
+def get_assault_locations():
+    return jsonify(assault_locations)
+
 if __name__ == '__main__':
     app.run(debug=True)
-    
