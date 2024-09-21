@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 # Define the upload folder path and allowed extensions
-UPLOAD_FOLDER = r'C:\Users\Hp\OneDrive\Desktop\Woman_Safety\static\uploads'
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov'}
 
@@ -224,4 +224,4 @@ def get_assault_locations():
     return jsonify(assault_locations)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000)
