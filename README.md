@@ -15,7 +15,7 @@ https://youtu.be/FsQIPZuvFSQ
 Open your terminal and run the following command to clone the repository:
 
 ```bash
-git clone https://github.com/https://github.com/SahilWadhawan/Women_Safety_App.git
+git clone https://github.com/SahilWadhawan/Women_Safety_App.git
 cd Women_Safety_App
 ```
 ### 2. Install the required dependencies
@@ -37,11 +37,8 @@ cd ..
 ```bash
 pip install Flask
 ```
-### 5. Change UPLOAD_FOLDER in app.py to your 'uploads' folder path.
-```bash
-UPLOAD_FOLDER = 'your/local/uploads/folder/path'
-```
-### 6. Run the Flask app
+
+### 5. Run the Flask app
 ```bash
 python app.py
 ```
