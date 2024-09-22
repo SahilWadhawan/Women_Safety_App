@@ -213,17 +213,76 @@
     <!-- Add Statistics box here -->
     <div class="row">
       <div class="col-md-12">
-        <div class="card">
+        <div class="card" id="statistics-section">
           <h2 class="text-lg font-bold">
             <i class="fas fa-chart-bar"></i> System Statistics
           </h2>
           <ul class="list-unstyled">
-            <li><strong>Number of Locations Monitored: 150 </strong></li>
-            <li><strong>Number of Assaults Detected Today: 10</strong></li>
+            <li>
+              <strong
+                >Number of Locations Monitored:
+                <span id="locations-count">0</span>
+              </strong>
+            </li>
+            <li>
+              <strong
+                >Number of Assaults Detected Today:
+                <span id="assaults-count">0</span></strong
+              >
+            </li>
           </ul>
         </div>
       </div>
     </div>
+
+    <script>
+      // Function to animate the counting effect
+      function animateCount(element, start, end, duration) {
+        let current = start;
+        const increment = (end - start) / duration;
+        let frameCount = 0;
+
+        function updateCount() {
+          current += increment;
+          frameCount++;
+          if (current >= end || frameCount >= duration) {
+            element.textContent = Math.round(end);
+          } else {
+            element.textContent = Math.round(current);
+            requestAnimationFrame(updateCount);
+          }
+        }
+
+        requestAnimationFrame(updateCount);
+      }
+
+      // Function to handle the visibility and counting
+      function handleVisibility(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Start the count animations only when the section is visible
+            animateCount(
+              document.getElementById("locations-count"),
+              0,
+              150,
+              100
+            ); // 150 Locations
+            animateCount(document.getElementById("assaults-count"), 0, 10, 100); // 10 Assaults
+            observer.unobserve(entry.target); // Stop observing once animation has started
+          }
+        });
+      }
+
+      // Create an IntersectionObserver to observe the statistics section
+      const observer = new IntersectionObserver(handleVisibility, {
+        threshold: 0.5, // Trigger when 50% of the section is visible
+      });
+
+      // Start observing the statistics section
+      const statsSection = document.getElementById("statistics-section");
+      observer.observe(statsSection);
+    </script>
+
     <footer>&copy; 2024 Women Assault Detection System</footer>
 
     <!-- Footer Info -->
@@ -231,11 +290,11 @@
       <p>
         Developed with <span class="heart">&hearts;</span> by Sahil |
         <a href="https://github.com/SahilWadhawan" target="_blank" class="me-2">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="mailto:sahilwadhawan16@gmail.com" class="me-2">
-            <i class="fas fa-envelope"></i>
-          </a>
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:sahilwadhawan16@gmail.com" class="me-2">
+          <i class="fas fa-envelope"></i>
+        </a>
         <a href="https://www.linkedin.com/in/sahilw16/">
           Connect with me on LinkedIn</a
         >
