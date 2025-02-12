@@ -1,10 +1,10 @@
 # Woman Safety Analytics Project
 
-## SIH_ROUND_2_PPT:
+## Demo PPT:
 [SIH_PPT_FINAL.pptx](https://github.com/user-attachments/files/16942404/SIH_PPT_FINAL.pptx)
 
 
-## SIH_ROUND_2_DEMO_VIDEO:
+## DEMO VIDEO:
 https://youtu.be/Ns_Ly8B2q3c
 
 ---
