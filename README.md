@@ -47,12 +47,3 @@ python app.py
 **Team Name:** ALPHA
 
 **Team Leader:** [Sahil Wadhawan](https://github.com/SahilWadhawan)
-
-**Team Members:**
-
-- **MEMBER_1** - 2022UEE4665 - SAHIL WADHAWAN
-- **MEMBER_2** - 2022UEC4602 - KASHYAP CHANDRA PRATAP
-- **MEMBER_3** - 2022UEE4637 - ABHINAV SINGH
-- **MEMBER_4** - 2022UEE4668 - YASHITA SINGH
-- **MEMBER_5** - 2022UEE4669 - SHREYANSH AGARWAL
-- **MEMBER_6** - 2022UEE3595 - LOKENDRA SINGH
